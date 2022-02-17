@@ -57,12 +57,19 @@ public class ServiceMenuParser {
 			// Popolamento file excel
 			creaRiga(mc.getNodes(), sheet);
 			
-			// Crea cartella Output e inserisci file
-			boolean file = new File("./output").mkdir();
+			//Creazione cartella se essa non è già presente
+			File outputFile = new File("./output");
+			if(!outputFile.isDirectory()) {
+				outputFile.mkdir();
+				System.out.println("Creata cartella output");
+			}
+			
+			//output file
 			FileOutputStream out = new FileOutputStream(prop.getProperty("output"));
 			workbook.write(out);
 			out.close();
-			
+
+				
 		} catch (JsonSyntaxException | JsonIOException | IOException e) {
 			e.printStackTrace();
 		}

@@ -6,6 +6,6 @@ public class Principale {
 	public static void main(String[] args) {
 		ServiceMenuParser operazione = new ServiceMenuParser();
 		operazione.deserializzaJson_CreaxlsFile();
-		System.out.println("Creazione del file excel nella directory output andata a buon fine");
+		System.out.println("Creazione del file excel andata a buon fine");
 	}
 }
