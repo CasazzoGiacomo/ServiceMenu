@@ -1,4 +1,4 @@
-package model;
+package it.omicron.model;
 
 public class Resource {
 	private int id;

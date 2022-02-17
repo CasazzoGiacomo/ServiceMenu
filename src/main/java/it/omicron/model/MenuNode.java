@@ -1,4 +1,4 @@
-package model;
+package it.omicron.model;
 import java.util.List;
 
 public class MenuNode {

@@ -1,4 +1,4 @@
-package util;
+package it.omicron.util;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,8 +15,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
-import model.MenuContent;
-import model.MenuNode;
+import it.omicron.model.MenuContent;
+import it.omicron.model.MenuNode;
 
 public class ServiceMenuParser {
 	public static int maxDepth;
@@ -53,14 +53,16 @@ public class ServiceMenuParser {
 			for (int i = lunghezza, j = 0; i <= valoriCol.size() + maxDepth; i++, j++) {
 				row.createCell(i).setCellValue(valoriCol.get(j));
 			}
+			
 			// Popolamento file excel
 			creaRiga(mc.getNodes(), sheet);
-
-			// Output file
-			FileOutputStream out = new FileOutputStream(new File(prop.getProperty("output")));
+			
+			// Crea cartella Output e inserisci file
+			boolean file = new File("./output").mkdir();
+			FileOutputStream out = new FileOutputStream(prop.getProperty("output"));
 			workbook.write(out);
 			out.close();
-
+			
 		} catch (JsonSyntaxException | JsonIOException | IOException e) {
 			e.printStackTrace();
 		}
